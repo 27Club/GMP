@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose a new feature or enhancement.
+title: "[Feature]: "
+labels:
+  - feature
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Opportunity
+      description: What problem are we solving or opportunity are we pursuing?
+      placeholder: Describe the user pain or outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What do you want to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / Non-goals
+      description: What is in scope and explicitly out of scope?
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Bullet list of measurable outcomes.
+      placeholder: "- [ ] ..."
+    validations:
+      required: true

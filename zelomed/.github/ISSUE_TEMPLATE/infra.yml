@@ -1,0 +1,31 @@
+name: Infra request
+description: Infrastructure, DevOps, or platform work request.
+title: "[Infra]: "
+labels:
+  - infra
+body:
+  - type: textarea
+    id: request
+    attributes:
+      label: Request
+      description: What do you need?
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification
+      description: Why is this needed? Business or operational impact.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / Non-goals
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
