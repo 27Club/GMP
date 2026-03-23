@@ -1,0 +1,52 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18402274108",
+                "name": "Products & Services",
+                "description": null,
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "product_and_service_description",
+                        "title": "Description",
+                        "type": "long_text",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "product_and_service_price",
+                        "title": "Price",
+                        "type": "numbers",
+                        "settings_str": "{\"unit\":{\"symbol\":\"$\",\"custom_unit\":\"\",\"direction\":\"left\"}}"
+                    },
+                    {
+                        "id": "product_and_service_sku",
+                        "title": "SKU",
+                        "type": "text",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "product_and_service_type",
+                        "title": "Type",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[],\"deactivated_labels\":[],\"color_mapping\":{\"0\":153,\"153\":0},\"labels\":{\"0\":\"Service\",\"3\":\"Inventory\"},\"labels_positions_v2\":{\"0\":1,\"3\":0,\"5\":2},\"labels_colors\":{\"0\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"}}}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Products"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "e3da72b8-beb5-9375-9833-b24339eb8f5a"
+    }
+}

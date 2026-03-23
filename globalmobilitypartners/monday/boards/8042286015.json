@@ -1,0 +1,52 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "8042286015",
+                "name": "GMP Satisfaction Survey",
+                "description": "",
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "rating_Mjj5GNXj",
+                        "title": "Rating",
+                        "type": "rating",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "rating_1_Mjj5GFDk",
+                        "title": "How do you feel about GMP's service quality?",
+                        "type": "rating",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "rating_Mjj5Hzik",
+                        "title": "How do you feel about GMP's response times?",
+                        "type": "rating",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "long_text_Mjj5tfrm",
+                        "title": "Any additional comments or feedback you'd like to share?",
+                        "type": "long_text",
+                        "settings_str": "{}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Incoming responses"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "bb2473a0-d0a6-9ec1-abdc-bd13f690a1ad"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18391503288",
+                "name": "Services List Database - Canada",
+                "description": null,
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "subitems",
+                        "title": "Subitems",
+                        "type": "subtasks",
+                        "settings_str": "{\"allowMultipleItems\":true,\"itemTypeName\":\"column.subtasks.title\",\"displayType\":\"BOARD_INLINE\",\"boardIds\":[18391503304]}"
+                    },
+                    {
+                        "id": "text_mm1apk4e",
+                        "title": "Legal Fee (CAD)",
+                        "type": "text",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "text_mm1a8art",
+                        "title": "Government Fee (CAD)",
+                        "type": "text",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "text_mm1aksq9",
+                        "title": "Comments",
+                        "type": "text",
+                        "settings_str": "{}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "group_mm1ahhk",
+                        "title": "Canada Fee Schedules"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "872e0236-e0da-9f9e-8aac-d91b1142b3cb"
+    }
+}

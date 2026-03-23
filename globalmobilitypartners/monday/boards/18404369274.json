@@ -1,0 +1,34 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18404369274",
+                "name": "MCP getting started",
+                "description": null,
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "files",
+                        "title": "Files",
+                        "type": "file",
+                        "settings_str": "{\"hide_footer\":false}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Group Title"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "03b67244-4724-9d07-8085-15e652c52059"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "8693457739",
+                "name": "Expiration Tracking",
+                "description": null,
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "files",
+                        "title": "Files",
+                        "type": "file",
+                        "settings_str": "{\"hide_footer\":false}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Group Title"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "0f66cea7-280e-981a-88d8-3c4e03239d2b"
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "scenario": {
+        "id": 4583539,
+        "name": "Create Marketing Content",
+        "teamId": 38808,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "concept": false,
+        "description": "",
+        "folderId": 308949,
+        "slots": null,
+        "isinvalid": false,
+        "islinked": true,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+            "http",
+            "openai-gpt-3",
+            "json",
+            "monday",
+            "http"
+        ],
+        "lastEdit": "2026-03-20T02:27:37.042Z",
+        "scheduling": {
+            "type": "on-demand"
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "allDlqCount": 0,
+        "createdByUser": {
+            "id": 105162,
+            "name": "Kyle Homstol",
+            "email": "kyle@globalmobilitypartnersllc.com"
+        },
+        "updatedByUser": {
+            "id": 7223803,
+            "name": "Debra White",
+            "email": "debra@globalmobilitypartnersllc.com"
+        },
+        "nextExec": null,
+        "created": "2026-02-26T19:54:42.839Z",
+        "chainingRole": "child",
+        "type": "scenario",
+        "isShared": false,
+        "isActive": true
+    }
+}

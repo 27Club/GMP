@@ -1,0 +1,80 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18402274113",
+                "name": "Client Projects",
+                "description": "",
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "subitems",
+                        "title": "Subitems",
+                        "type": "subtasks",
+                        "settings_str": "{\"allowMultipleItems\":true,\"itemTypeName\":\"column.subtasks.title\",\"displayType\":\"BOARD_INLINE\",\"boardIds\":[18402274123]}"
+                    },
+                    {
+                        "id": "project_owner",
+                        "title": "Owner",
+                        "type": "people",
+                        "settings_str": "{\"max_people_allowed\":\"0\"}"
+                    },
+                    {
+                        "id": "project_prority",
+                        "title": "Priority",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"color_mapping\":{\"0\":3,\"1\":107,\"2\":16,\"3\":0,\"16\":2,\"107\":1},\"labels\":{\"0\":\"Medium\",\"1\":\"High\",\"2\":\"Low\"},\"labels_colors\":{\"0\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"1\":{\"color\":\"#225091\",\"border\":\"#225091\",\"var_name\":\"navy\"},\"2\":{\"color\":\"#66ccff\",\"border\":\"#5ab3e0\",\"var_name\":\"turquoise\"}}}"
+                    },
+                    {
+                        "id": "project_timeline",
+                        "title": "Timeline",
+                        "type": "timeline",
+                        "settings_str": "{\"show_set_as_milestone\":false}"
+                    },
+                    {
+                        "id": "project_status",
+                        "title": "Status",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\",\"5\":\"Not Started\"},\"labels_positions_v2\":{\"0\":1,\"1\":3,\"2\":2,\"5\":0},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"}}}"
+                    },
+                    {
+                        "id": "project_opportunity",
+                        "title": "Deals",
+                        "type": "board_relation",
+                        "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[],\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"18402274115\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"industry\"},\"info1\":{\"refId\":\"status\"}}},\"staticImage\":\"opportunities\",\"boardId\":18402274115}"
+                    },
+                    {
+                        "id": "project_contact",
+                        "title": "Contact",
+                        "type": "board_relation",
+                        "settings_str": "{\"boardIds\":[],\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"18402274111\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"title5\"}}},\"staticImage\":\"contacts\",\"boardId\":18402274111}"
+                    },
+                    {
+                        "id": "connect_boards",
+                        "title": "Accounts",
+                        "type": "board_relation",
+                        "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[],\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"18402274112\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"industry\"}}},\"staticImage\":\"accounts\",\"boardId\":18402274112}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "new_group29179",
+                        "title": "New Projects"
+                    },
+                    {
+                        "id": "topics",
+                        "title": "Completed"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "276e0440-9f7d-977e-af70-bcfbe59136b6"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "8673761694",
+                "name": "PTO/Vacation Policy",
+                "description": null,
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "files",
+                        "title": "Files",
+                        "type": "file",
+                        "settings_str": "{\"hide_footer\":false}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Group Title"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "f98b148e-5b36-9360-99f2-f5fa7e575994"
+    }
+}

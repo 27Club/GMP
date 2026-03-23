@@ -1,0 +1,50 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18404386121",
+                "name": "Create AI Meeting Notes Item",
+                "description": null,
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "person",
+                        "title": "Person",
+                        "type": "person",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "status",
+                        "title": "Status",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[1],\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":0,\"1\":2,\"2\":1,\"5\":3},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                    },
+                    {
+                        "id": "date4",
+                        "title": "Date",
+                        "type": "date",
+                        "settings_str": "{}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Group Title"
+                    },
+                    {
+                        "id": "group_title",
+                        "title": "Group Title"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "b7fea969-1068-9b57-9020-c1cb81008fd2"
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18383492026",
+                "name": "Activities",
+                "description": "The activities board shows all the activities that are added using the Emails & Activities in the page.\nEvery time you add an activity through Emails & Activities, a new activity will be added to this board.",
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "activity_owner",
+                        "title": "Owner",
+                        "type": "people",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "activity_item",
+                        "title": "Source Item",
+                        "type": "board_relation",
+                        "settings_str": "{\"allowMultipleBoards\":true,\"boardIds\":[18383492040,18383492019,18383492026],\"boardId\":18383492040}"
+                    },
+                    {
+                        "id": "mirror_mkmghy7q",
+                        "title": "Source Board",
+                        "type": "mirror",
+                        "settings_str": "{\"relation_column\":{\"activity_item\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18383492040\":[\"board\"],\"18383492019\":[\"board\"],\"18383492026\":[\"board\"]}}"
+                    },
+                    {
+                        "id": "activity_start_time",
+                        "title": "Start time",
+                        "type": "date",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "activity_end_time",
+                        "title": "End time",
+                        "type": "date",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "activity_status",
+                        "title": "Status",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[4],\"color_mapping\":{\"0\":102,\"1\":14,\"4\":15,\"6\":4,\"14\":1,\"15\":6,\"102\":0},\"labels\":{\"3\":\"Open\",\"4\":\"Done\"},\"labels_positions_v2\":{\"3\":0,\"4\":1,\"5\":2},\"labels_colors\":{\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"4\":{\"color\":\"#9cd326\",\"border\":\"#89b921\",\"var_name\":\"lime-green\"}}}"
+                    },
+                    {
+                        "id": "activity_type",
+                        "title": "Activity Type",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"7\":153,\"153\":7},\"labels\":{\"0\":\"Call summary\",\"1\":\"Promotional Email\",\"2\":\"Proposal Sent\",\"3\":\"Site Inspection\",\"4\":\"Phone Call\",\"6\":\"Zoom Meeting Summary\",\"7\":\"CSM Checkin\",\"8\":\"consultation\",\"9\":\"Business Central Customer Info\",\"107\":\"Meeting\",\"153\":\"Phone call\"},\"labels_positions_v2\":{\"0\":2,\"5\":3,\"107\":0,\"153\":1},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"4\":{\"color\":\"#9d50dd\",\"border\":\"#9238af\",\"var_name\":\"purple\"},\"6\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"7\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"8\":{\"color\":\"#cab641\",\"border\":\"#c0ab31\",\"var_name\":\"mustered\"},\"9\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"107\":{\"color\":\"#225091\",\"border\":\"#225091\",\"var_name\":\"navy\"},\"153\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"}}}"
+                    },
+                    {
+                        "id": "text_mkmgemk8",
+                        "title": "Content",
+                        "type": "text",
+                        "settings_str": "{}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Account Activities"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "0af3a0d9-f743-9edb-a9d9-9afa6e676049"
+    }
+}

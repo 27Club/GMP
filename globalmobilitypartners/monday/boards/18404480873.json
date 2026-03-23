@@ -1,0 +1,34 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18404480873",
+                "name": "Marketing Content Engine Documentation",
+                "description": null,
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "files",
+                        "title": "Files",
+                        "type": "file",
+                        "settings_str": "{\"hide_footer\":false}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "topics",
+                        "title": "Group Title"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "5f5c8d8e-5ec1-9845-9fc4-27ae52a5bdbc"
+    }
+}
