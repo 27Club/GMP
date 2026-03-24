@@ -1,0 +1,101 @@
+{
+    "data": {
+        "boards": [
+            {
+                "id": "18405337734",
+                "name": "V2 AI Meeting Notes Tracker",
+                "columns": [
+                    {
+                        "id": "name",
+                        "title": "Name",
+                        "type": "name",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "date_mm1jdb0c",
+                        "title": "Meeting Date",
+                        "type": "date",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "multiple_person_mm1j3p79",
+                        "title": "Attendees",
+                        "type": "people",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "text_mm1ryypy",
+                        "title": "Prompt",
+                        "type": "text",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "dropdown_mm1j5812",
+                        "title": "Content Type",
+                        "type": "dropdown",
+                        "settings_str": "{\"limit_select\":false,\"labels\":[{\"id\":1,\"name\":\"Marketing\"},{\"id\":2,\"name\":\"Support\"},{\"id\":3,\"name\":\"Sales\"},{\"id\":4,\"name\":\"Operations\"},{\"id\":5,\"name\":\"LinkedIn Post\"},{\"id\":6,\"name\":\"LinkedIn Newsltter\"},{\"id\":7,\"name\":\"Blog Post\"},{\"id\":8,\"name\":\"Email Newsltter\"}],\"deactivated_labels\":[1,4,3,2]}"
+                    },
+                    {
+                        "id": "subtasks_mm1jnvcs",
+                        "title": "Subitems",
+                        "type": "subtasks",
+                        "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[18405337736]}"
+                    },
+                    {
+                        "id": "color_mm1j6ejs",
+                        "title": "Generate Content?",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[1],\"deactivated_labels\":[1,2],\"labels\":{\"0\":\"Yes\",\"1\":\"Complete\",\"2\":\"No\"},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                    },
+                    {
+                        "id": "color_mm1j3rfh",
+                        "title": "Status",
+                        "type": "status",
+                        "settings_str": "{\"done_colors\":[1],\"labels\":{\"0\":\"Processing\",\"1\":\"Done\",\"2\":\"Error\"},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                    },
+                    {
+                        "id": "long_text_mm1jwj6k",
+                        "title": "Transcript",
+                        "type": "long_text",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "boolean_mm1qappr",
+                        "title": "Regenerate?",
+                        "type": "checkbox",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "long_text_mm1qyatd",
+                        "title": "Regeneration Prompt",
+                        "type": "long_text",
+                        "settings_str": "{}"
+                    },
+                    {
+                        "id": "text_mm1qq8kr",
+                        "title": "Generate LinkedIn Post",
+                        "type": "text",
+                        "settings_str": "{}"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": "group_mm1jjbk",
+                        "title": "Completed Meetings"
+                    },
+                    {
+                        "id": "group_mm1jvq74",
+                        "title": "Archived Meetings"
+                    },
+                    {
+                        "id": "topics",
+                        "title": "Upcoming Meetings"
+                    }
+                ]
+            }
+        ]
+    },
+    "extensions": {
+        "request_id": "495b0bb8-d033-9958-8ac8-5417563171ad"
+    }
+}
