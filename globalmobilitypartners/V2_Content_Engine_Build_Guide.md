@@ -85,9 +85,11 @@ Content ready for review on destination board
 | ID | Label | Destination Board |
 |---|---|---|
 | 5 | LinkedIn Post | 18405134840 |
-| 6 | LinkedIn Newsletter | 18405340870 |
+| 6 | LinkedIn Newsltter *(typo — fix in Monday UI)* | 18405340870 |
 | 7 | Blog Post | 18405333684 |
-| 8 | Email Newsletter | 18405340749 |
+| 8 | Email Newsltter *(typo — fix in Monday UI)* | 18405340749 |
+
+> **Important:** The dropdown labels have typos. The Make scenario filters currently match the TYPO text. If you fix the typos in Monday.com, you must also update the Router filter conditions in scenario 4621460 to match the corrected text.
 
 > **Note:** The Prompt column is `text` type (2,000 character limit), not `long_text`. If prompts regularly exceed 2,000 characters, this column should be changed to `long_text` in Monday.com.
 
@@ -274,12 +276,14 @@ Identical to Module 5A.
 
 ---
 
-## Scenario 2: V2 Meeting Board Sync (NEW — User Must Create Shell)
+## Scenario 2: V2 Meeting Board Sync (4621460) — DEPLOYED
 
+**URL:** https://us1.make.com/38808/scenarios/4621460/edit
 **Type:** Webhook trigger (event-driven)
 **Board:** V2 AI Meeting Notes Tracker (18405337734)
+**Status:** Blueprint deployed via API on 2026-03-24. Active and linked.
 
-> **Setup:** Create a new scenario in Make.com UI. Add a Monday.com webhook module watching board 18405337734, column `color_mm1j6ejs` (Generate Content?). Then we can PATCH the blueprint.
+> Repurposed from original V1 "Meeting Board Sync" scenario. Monday.com webhook (ID: 555027912) watches V2 board for all column changes. Scenario filter ensures only "Generate Content?" = "Yes" events are processed.
 
 ### Module Flow
 
@@ -400,12 +404,17 @@ Blueprint deployed via Make API on 2026-03-24. Changes:
 - Input interface: `item_id`, `board_id`, `prompt`, `transcript`
 - Test by calling with known item on each board type
 
-### Step 3: Create V2 Meeting Board Sync Scenario
+### Step 3: V2 Meeting Board Sync Scenario — DONE
 
-1. In Make.com UI, create a new scenario
-2. Add Monday.com webhook trigger watching board 18405337734, column `color_mm1j6ejs`
-3. Build the module flow as described above
-4. Test end-to-end with each Content Type
+Scenario 4621460 repurposed and deployed via API. Monday webhook (555027912) created on V2 board.
+- Module 1: Webhook trigger (existing hook 2653062)
+- Module 2: Set Status=Processing (filter: only Generate Content = Yes)
+- Module 20: HTTP — Read Prompt + Transcript + Content Type
+- Module 21: HTTP — Create item on destination board (dynamic board_id via if())
+- Router (Module 22):
+  - Route A (Blog/Email): Write columns (mm0y IDs) → Call 4632957 → Set Done
+  - Route B (LinkedIn): Write columns (mm1q IDs) → Call 4632957 → Set Done
+  - Error handlers: Set Status=Error
 
 ### Step 4: End-to-End Test
 
@@ -434,7 +443,8 @@ For each Content Type:
 | LinkedIn Newsletter board | 18405340870 |
 | LinkedIn Post board | 18405134840 |
 | Generic ChatGPT Prompt scenario | 4632957 |
-| V2 Meeting Board Sync scenario | TBD (user creates shell) |
+| V2 Meeting Board Sync scenario | 4621460 (repurposed) |
+| V2 Monday webhook | 555027912 |
 | Monday.com connection | 153017 |
 | OpenAI connection | 4683909 |
 | Make API auth | apiKeyKeychain: 86399 |
