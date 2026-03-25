@@ -35,6 +35,23 @@
     },
     {
       "id": 2,
+      "filter": {
+        "name": "Only Generate Content = Yes",
+        "conditions": [
+          [
+            {
+              "a": "{{1.columnId}}",
+              "b": "color_mm1j6ejs",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{1.value.label.text}}",
+              "b": "Yes",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
       "mapper": {
         "itemId": "{{1.pulseId}}",
         "boardId": "18405337734",
@@ -179,23 +196,6 @@
       },
       "parameters": {
         "__IMTCONN__": 153017
-      },
-      "filter": {
-        "name": "Only Generate Content = Yes",
-        "conditions": [
-          [
-            {
-              "a": "{{1.columnId}}",
-              "b": "color_mm1j6ejs",
-              "o": "text:equal"
-            },
-            {
-              "a": "{{1.value.label.text}}",
-              "b": "Yes",
-              "o": "text:equal"
-            }
-          ]
-        ]
       }
     },
     {
@@ -409,1120 +409,283 @@
       }
     },
     {
-      "id": 22,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "mapper": null,
+      "id": 24,
+      "mapper": {
+        "data": {
+          "item_id": "{{21.data.data.create_item.id}}",
+          "board_id": "{{if(20.data.data.items[].column_values[2].text = \"Blog Post\"; \"18405333684\"; if(20.data.data.items[].column_values[2].text = \"Email Newsltter\"; \"18405340749\"; if(20.data.data.items[].column_values[2].text = \"LinkedIn Newsltter\"; \"18405340870\"; \"18405134840\")))}}",
+          "prompt": "{{20.data.data.items[].column_values[0].text}}",
+          "transcript": "{{20.data.data.items[].column_values[1].text}}"
+        }
+      },
+      "module": "scenario-service:CallSubscenario",
+      "onerror": [
+        null
+      ],
+      "version": 2,
       "metadata": {
+        "expect": [
+          {
+            "name": "data",
+            "spec": [
+              {
+                "name": "item_id",
+                "type": "text",
+                "required": true
+              },
+              {
+                "name": "meeting_item_id",
+                "type": "text"
+              }
+            ],
+            "type": "collection",
+            "label": "Scenario Inputs"
+          }
+        ],
+        "restore": {
+          "parameters": {
+            "scenario": {
+              "label": "ChatGPT Prompt"
+            }
+          }
+        },
         "designer": {
           "x": 800,
           "y": 0
-        }
-      },
-      "routes": [
-        {
-          "flow": [
-            {
-              "id": 23,
-              "mapper": {
-                "url": "https://api.monday.com/v2",
-                "method": "post",
-                "headers": [
-                  {
-                    "name": "Authorization",
-                    "value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjYzNDQzOTk3NSwiYWFpIjoxMSwidWlkIjoxMDEwNzkxMTUsImlhZCI6IjIwMjYtMDMtMTdUMjI6MDI6MjkuMDAwWiIsInBlciI6Im1lOndyaXRlIiwiYWN0aWQiOjUxNTY5MTcsInJnbiI6InVzZTEifQ.k74w9ifiaP8bFLxO0CMuI2Sy6Pk0v3pxuhVg1b50_6M"
-                  },
-                  {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "contentType": "json",
-                "inputMethod": "jsonString",
-                "shareCookies": false,
-                "parseResponse": true,
-                "allowRedirects": true,
-                "stopOnHttpError": true,
-                "jsonStringBodyContent": "{\"query\": \"mutation($boardId: ID!, $itemId: ID!, $cv: JSON!) { change_multiple_column_values(board_id: $boardId, item_id: $itemId, column_values: $cv) { id } }\", \"variables\": {\"boardId\": \"{{if(20.data.data.items[].column_values[2].text = \"Blog Post\"; \"18405333684\"; \"18405340749\")}}\", \"itemId\": \"{{21.data.data.create_item.id}}\", \"cv\": \"{\\\"long_text_mm1qv1zj\\\": {{\\\"text\\\": \\\"{{{{replace(replace(20.data.data.items[].column_values[0].text; emptystring; emptystring); newline; \\\" \\\")}}}}\\\"}},\\\"long_text_mm0y5paq\\\": {{\\\"text\\\": \\\"{{{{replace(replace(20.data.data.items[].column_values[1].text; emptystring; emptystring); newline; \\\" \\\")}}}}\\\"}}}\"}}",
-                "requestCompressedContent": true
-              },
-              "module": "http:MakeRequest",
-              "version": 4,
-              "metadata": {
-                "expect": [
-                  {
-                    "name": "url",
-                    "type": "url",
-                    "label": "URL",
-                    "required": true
-                  },
-                  {
-                    "name": "method",
-                    "type": "select",
-                    "label": "Method",
-                    "required": true
-                  },
-                  {
-                    "name": "headers",
-                    "type": "array",
-                    "label": "Headers"
-                  },
-                  {
-                    "name": "contentType",
-                    "type": "select",
-                    "label": "Body content type"
-                  },
-                  {
-                    "name": "parseResponse",
-                    "type": "boolean",
-                    "label": "Parse response",
-                    "required": true
-                  },
-                  {
-                    "name": "stopOnHttpError",
-                    "type": "boolean",
-                    "label": "Return error",
-                    "required": true
-                  },
-                  {
-                    "name": "allowRedirects",
-                    "type": "boolean",
-                    "label": "Allow redirects",
-                    "required": true
-                  },
-                  {
-                    "name": "shareCookies",
-                    "type": "boolean",
-                    "label": "Share cookies",
-                    "required": true
-                  },
-                  {
-                    "name": "requestCompressedContent",
-                    "type": "boolean",
-                    "label": "Compressed",
-                    "required": true
-                  },
-                  {
-                    "name": "inputMethod",
-                    "type": "select",
-                    "label": "Body input method",
-                    "required": true
-                  },
-                  {
-                    "name": "jsonStringBodyContent",
-                    "type": "text",
-                    "label": "Body content",
-                    "required": true
-                  }
-                ],
-                "designer": {
-                  "x": 900,
-                  "y": -150
-                }
-              },
-              "parameters": {
-                "tlsType": "",
-                "proxyKeychain": "",
-                "apiKeyKeychain": 86399,
-                "authenticationType": "apiKey"
-              },
-              "filter": {
-                "name": "Blog or Email",
-                "conditions": [
-                  [
-                    {
-                      "a": "{{20.data.data.items[].column_values[2].text}}",
-                      "b": "Blog Post",
-                      "o": "text:equal"
-                    }
-                  ],
-                  [
-                    {
-                      "a": "{{20.data.data.items[].column_values[2].text}}",
-                      "b": "Email Newsltter",
-                      "o": "text:equal"
-                    }
-                  ]
-                ]
-              }
-            },
-            {
-              "id": 24,
-              "mapper": {
-                "data": {
-                  "item_id": "{{21.data.data.create_item.id}}",
-                  "board_id": "{{if(20.data.data.items[].column_values[2].text = \"Blog Post\"; \"18405333684\"; \"18405340749\")}}",
-                  "prompt": "{{20.data.data.items[].column_values[0].text}}",
-                  "transcript": "{{20.data.data.items[].column_values[1].text}}"
-                }
-              },
-              "module": "scenario-service:CallSubscenario",
-              "onerror": [
-                {
-                  "id": 26,
-                  "mapper": {
-                    "itemId": "{{1.pulseId}}",
-                    "boardId": "18405337734",
-                    "columnValuesToChange": [
-                      {
-                        "columnId": "color_mm1j3rfh",
-                        "columnValue": {
-                          "label": "Error",
-                          "settings": {
-                            "labels": [
-                              {
-                                "id": 0,
-                                "hex": "#fdab3d",
-                                "color": 0,
-                                "index": 0,
-                                "label": "Processing"
-                              },
-                              {
-                                "id": 1,
-                                "hex": "#00c875",
-                                "color": 1,
-                                "index": 1,
-                                "label": "Done"
-                              },
-                              {
-                                "id": 2,
-                                "hex": "#df2f4a",
-                                "color": 2,
-                                "index": 2,
-                                "label": "Error"
-                              }
-                            ]
-                          },
-                          "selectType": "label2index"
-                        }
-                      }
-                    ],
-                    "create_labels_if_missing": false
-                  },
-                  "module": "monday:ChangeMultipleColumnValuesV2",
-                  "version": 2,
-                  "metadata": {
-                    "expect": [
-                      {
-                        "name": "boardId",
-                        "type": "select",
-                        "label": "Board ID",
-                        "required": true
-                      },
-                      {
-                        "name": "create_labels_if_missing",
-                        "type": "boolean",
-                        "label": "Create Labels if Missing",
-                        "required": true
-                      },
-                      {
-                        "name": "itemId",
-                        "type": "select",
-                        "label": "Item ID",
-                        "required": true
-                      },
-                      {
-                        "name": "columnValuesToChange",
-                        "spec": [
-                          {
-                            "name": "columnId",
-                            "type": "select",
-                            "label": "Column ID",
-                            "dynamic": true,
-                            "options": {
-                              "store": []
-                            },
-                            "required": true,
-                            "validate": false
-                          }
-                        ],
-                        "type": "array",
-                        "label": "Column Values to Change",
-                        "required": true
-                      }
-                    ],
-                    "restore": {
-                      "expect": {
-                        "itemId": {
-                          "mode": "edit"
-                        },
-                        "boardId": {
-                          "mode": "edit"
-                        },
-                        "columnValuesToChange": {
-                          "mode": "chose",
-                          "items": [
-                            {
-                              "columnId": {
-                                "mode": "chose",
-                                "label": "Status"
-                              },
-                              "columnValue": {
-                                "nested": {
-                                  "label": {
-                                    "mode": "chose",
-                                    "label": "Error"
-                                  },
-                                  "selectType": {
-                                    "mode": "chose",
-                                    "label": "Label"
-                                  }
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "create_labels_if_missing": {
-                          "mode": "chose"
-                        }
-                      },
-                      "parameters": {
-                        "__IMTCONN__": {
-                          "data": {
-                            "scoped": "true",
-                            "connection": "monday"
-                          },
-                          "label": "Kyles API"
-                        }
-                      }
-                    },
-                    "designer": {
-                      "x": 1341,
-                      "y": 152
-                    },
-                    "parameters": [
-                      {
-                        "name": "__IMTCONN__",
-                        "type": "account:monday",
-                        "label": "Connection",
-                        "required": true
-                      }
-                    ]
-                  },
-                  "parameters": {
-                    "__IMTCONN__": 153017
-                  }
-                }
-              ],
-              "version": 2,
-              "metadata": {
-                "expect": [
-                  {
-                    "name": "data",
-                    "spec": [
-                      {
-                        "name": "item_id",
-                        "type": "text",
-                        "required": true
-                      },
-                      {
-                        "name": "meeting_item_id",
-                        "type": "text"
-                      }
-                    ],
-                    "type": "collection",
-                    "label": "Scenario Inputs"
-                  }
-                ],
-                "restore": {
-                  "parameters": {
-                    "scenario": {
-                      "label": "ChatGPT Prompt"
-                    }
-                  }
-                },
-                "designer": {
-                  "x": 1200,
-                  "y": -150
-                },
-                "interface": [
-                  {
-                    "help": "Generated marketing content from meeting transcript including blog, LinkedIn post, and SEO metadata",
-                    "name": "marketing_content",
-                    "type": "text",
-                    "label": "",
-                    "default": "",
-                    "required": true,
-                    "multiline": true
-                  }
-                ],
-                "parameters": [
-                  {
-                    "name": "scenario",
-                    "type": "scenario",
-                    "label": "Scenario",
-                    "required": true
-                  },
-                  {
-                    "name": "shouldWaitForExecutionEnd",
-                    "type": "boolean",
-                    "label": "Wait for the scenario to finish",
-                    "required": true
-                  }
-                ]
-              },
-              "parameters": {
-                "scenario": "SCN_4632957",
-                "shouldWaitForExecutionEnd": true
-              }
-            },
-            {
-              "id": 25,
-              "mapper": {
-                "itemId": "{{1.pulseId}}",
-                "boardId": "18405337734",
-                "columnValuesToChange": [
-                  {
-                    "columnId": "color_mm1j3rfh",
-                    "columnValue": {
-                      "label": "Done",
-                      "settings": {
-                        "labels": [
-                          {
-                            "id": 0,
-                            "hex": "#fdab3d",
-                            "color": 0,
-                            "index": 0,
-                            "label": "Processing",
-                            "is_done": false,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 1,
-                            "hex": "#00c875",
-                            "color": 1,
-                            "index": 1,
-                            "label": "Done",
-                            "is_done": false,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 2,
-                            "hex": "#df2f4a",
-                            "color": 2,
-                            "index": 2,
-                            "label": "Error",
-                            "is_done": false,
-                            "is_deactivated": false
-                          }
-                        ]
-                      },
-                      "selectType": "label2index"
-                    }
-                  },
-                  {
-                    "columnId": "color_mm1j6ejs",
-                    "columnValue": {
-                      "label": "Complete",
-                      "settings": {
-                        "labels": [
-                          {
-                            "id": 0,
-                            "hex": "#fdab3d",
-                            "color": 0,
-                            "index": 0,
-                            "label": "Yes",
-                            "is_done": false,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 1,
-                            "hex": "#00c875",
-                            "color": 1,
-                            "index": 1,
-                            "label": "Complete",
-                            "is_done": true,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 2,
-                            "hex": "#df2f4a",
-                            "color": 2,
-                            "index": 2,
-                            "label": "No",
-                            "is_done": false,
-                            "is_deactivated": false
-                          }
-                        ]
-                      },
-                      "selectType": "label2index"
-                    }
-                  }
-                ],
-                "create_labels_if_missing": true
-              },
-              "module": "monday:ChangeMultipleColumnValuesV2",
-              "version": 2,
-              "metadata": {
-                "expect": [
-                  {
-                    "name": "boardId",
-                    "type": "select",
-                    "label": "Board ID",
-                    "required": true
-                  },
-                  {
-                    "name": "create_labels_if_missing",
-                    "type": "boolean",
-                    "label": "Create Labels if Missing",
-                    "required": true
-                  },
-                  {
-                    "name": "itemId",
-                    "type": "any",
-                    "label": "Item ID",
-                    "required": true
-                  },
-                  {
-                    "name": "columnValuesToChange",
-                    "spec": [
-                      {
-                        "name": "columnId",
-                        "type": "select",
-                        "label": "Column ID",
-                        "dynamic": true,
-                        "options": {
-                          "store": []
-                        },
-                        "required": true,
-                        "validate": false
-                      }
-                    ],
-                    "type": "array",
-                    "label": "Column Values to Change",
-                    "required": true
-                  }
-                ],
-                "restore": {
-                  "expect": {
-                    "boardId": {
-                      "mode": "edit"
-                    },
-                    "columnValuesToChange": {
-                      "mode": "chose",
-                      "items": [
-                        {
-                          "columnId": {
-                            "mode": "edit"
-                          },
-                          "columnValue": {
-                            "nested": {
-                              "label": {
-                                "mode": "chose",
-                                "label": "Processing"
-                              },
-                              "selectType": {
-                                "mode": "chose",
-                                "label": "Label"
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "columnId": {
-                            "mode": "chose",
-                            "label": "Status"
-                          },
-                          "columnValue": {
-                            "nested": {
-                              "label": {
-                                "mode": "chose",
-                                "label": "Done"
-                              },
-                              "selectType": {
-                                "mode": "chose",
-                                "label": "Label"
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    "create_labels_if_missing": {
-                      "mode": "chose"
-                    }
-                  },
-                  "parameters": {
-                    "__IMTCONN__": {
-                      "data": {
-                        "scoped": "true",
-                        "connection": "monday"
-                      },
-                      "label": "Kyles API"
-                    }
-                  }
-                },
-                "designer": {
-                  "x": 1500,
-                  "y": -150
-                },
-                "parameters": [
-                  {
-                    "name": "__IMTCONN__",
-                    "type": "account:monday",
-                    "label": "Connection",
-                    "required": true
-                  }
-                ]
-              },
-              "parameters": {
-                "__IMTCONN__": 153017
-              }
-            }
-          ]
         },
-        {
-          "flow": [
-            {
-              "id": 27,
-              "mapper": {
-                "url": "https://api.monday.com/v2",
-                "method": "post",
-                "headers": [
+        "interface": [
+          {
+            "help": "Generated marketing content from meeting transcript including blog, LinkedIn post, and SEO metadata",
+            "name": "marketing_content",
+            "type": "text",
+            "label": "",
+            "default": "",
+            "required": true,
+            "multiline": true
+          }
+        ],
+        "parameters": [
+          {
+            "name": "scenario",
+            "type": "scenario",
+            "label": "Scenario",
+            "required": true
+          },
+          {
+            "name": "shouldWaitForExecutionEnd",
+            "type": "boolean",
+            "label": "Wait for the scenario to finish",
+            "required": true
+          }
+        ]
+      },
+      "parameters": {
+        "scenario": "SCN_4632957",
+        "shouldWaitForExecutionEnd": true
+      }
+    },
+    {
+      "id": 25,
+      "mapper": {
+        "itemId": "{{1.pulseId}}",
+        "boardId": "18405337734",
+        "columnValuesToChange": [
+          {
+            "columnId": "color_mm1j3rfh",
+            "columnValue": {
+              "label": "Done",
+              "settings": {
+                "labels": [
                   {
-                    "name": "Authorization",
-                    "value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjYzNDQzOTk3NSwiYWFpIjoxMSwidWlkIjoxMDEwNzkxMTUsImlhZCI6IjIwMjYtMDMtMTdUMjI6MDI6MjkuMDAwWiIsInBlciI6Im1lOndyaXRlIiwiYWN0aWQiOjUxNTY5MTcsInJnbiI6InVzZTEifQ.k74w9ifiaP8bFLxO0CMuI2Sy6Pk0v3pxuhVg1b50_6M"
+                    "id": 0,
+                    "hex": "#fdab3d",
+                    "color": 0,
+                    "index": 0,
+                    "label": "Processing",
+                    "is_done": false,
+                    "is_deactivated": false
                   },
                   {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "contentType": "json",
-                "inputMethod": "jsonString",
-                "shareCookies": false,
-                "parseResponse": true,
-                "allowRedirects": true,
-                "stopOnHttpError": true,
-                "jsonStringBodyContent": "{\"query\": \"mutation($boardId: ID!, $itemId: ID!, $cv: JSON!) { change_multiple_column_values(board_id: $boardId, item_id: $itemId, column_values: $cv) { id } }\", \"variables\": {\"boardId\": \"{{if(20.data.data.items[].column_values[2].text = \"LinkedIn Post\"; \"18405134840\"; \"18405340870\")}}\", \"itemId\": \"{{21.data.data.create_item.id}}\", \"cv\": \"{\\\"long_text_mm1qav6x\\\": {{\\\"text\\\": \\\"{{{{replace(replace(20.data.data.items[].column_values[0].text; emptystring; emptystring); newline; \\\" \\\")}}}}\\\"}},\\\"long_text_mm1qzbm3\\\": {{\\\"text\\\": \\\"{{{{replace(replace(20.data.data.items[].column_values[1].text; emptystring; emptystring); newline; \\\" \\\")}}}}\\\"}}}\"}}",
-                "requestCompressedContent": true
-              },
-              "module": "http:MakeRequest",
-              "version": 4,
-              "metadata": {
-                "expect": [
-                  {
-                    "name": "url",
-                    "type": "url",
-                    "label": "URL",
-                    "required": true
+                    "id": 1,
+                    "hex": "#00c875",
+                    "color": 1,
+                    "index": 1,
+                    "label": "Done",
+                    "is_done": false,
+                    "is_deactivated": false
                   },
                   {
-                    "name": "method",
-                    "type": "select",
-                    "label": "Method",
-                    "required": true
-                  },
-                  {
-                    "name": "headers",
-                    "type": "array",
-                    "label": "Headers"
-                  },
-                  {
-                    "name": "contentType",
-                    "type": "select",
-                    "label": "Body content type"
-                  },
-                  {
-                    "name": "parseResponse",
-                    "type": "boolean",
-                    "label": "Parse response",
-                    "required": true
-                  },
-                  {
-                    "name": "stopOnHttpError",
-                    "type": "boolean",
-                    "label": "Return error",
-                    "required": true
-                  },
-                  {
-                    "name": "allowRedirects",
-                    "type": "boolean",
-                    "label": "Allow redirects",
-                    "required": true
-                  },
-                  {
-                    "name": "shareCookies",
-                    "type": "boolean",
-                    "label": "Share cookies",
-                    "required": true
-                  },
-                  {
-                    "name": "requestCompressedContent",
-                    "type": "boolean",
-                    "label": "Compressed",
-                    "required": true
-                  },
-                  {
-                    "name": "inputMethod",
-                    "type": "select",
-                    "label": "Body input method",
-                    "required": true
-                  },
-                  {
-                    "name": "jsonStringBodyContent",
-                    "type": "text",
-                    "label": "Body content",
-                    "required": true
-                  }
-                ],
-                "designer": {
-                  "x": 900,
-                  "y": 150
-                }
-              },
-              "parameters": {
-                "tlsType": "",
-                "proxyKeychain": "",
-                "apiKeyKeychain": 86399,
-                "authenticationType": "apiKey"
-              },
-              "filter": {
-                "name": "LinkedIn Post or Newsletter",
-                "conditions": [
-                  [
-                    {
-                      "a": "{{20.data.data.items[].column_values[2].text}}",
-                      "b": "LinkedIn Post",
-                      "o": "text:equal"
-                    }
-                  ],
-                  [
-                    {
-                      "a": "{{20.data.data.items[].column_values[2].text}}",
-                      "b": "LinkedIn Newsltter",
-                      "o": "text:equal"
-                    }
-                  ]
-                ]
-              }
-            },
-            {
-              "id": 28,
-              "mapper": {
-                "data": {
-                  "item_id": "{{21.data.data.create_item.id}}",
-                  "board_id": "{{if(20.data.data.items[].column_values[2].text = \"LinkedIn Post\"; \"18405134840\"; \"18405340870\")}}",
-                  "prompt": "{{20.data.data.items[].column_values[0].text}}",
-                  "transcript": "{{20.data.data.items[].column_values[1].text}}"
-                }
-              },
-              "module": "scenario-service:CallSubscenario",
-              "onerror": [
-                {
-                  "id": 30,
-                  "mapper": {
-                    "itemId": "{{1.pulseId}}",
-                    "boardId": "18405337734",
-                    "columnValuesToChange": [
-                      {
-                        "columnId": "color_mm1j3rfh",
-                        "columnValue": {
-                          "label": "Error",
-                          "settings": {
-                            "labels": [
-                              {
-                                "id": 0,
-                                "hex": "#fdab3d",
-                                "color": 0,
-                                "index": 0,
-                                "label": "Processing"
-                              },
-                              {
-                                "id": 1,
-                                "hex": "#00c875",
-                                "color": 1,
-                                "index": 1,
-                                "label": "Done"
-                              },
-                              {
-                                "id": 2,
-                                "hex": "#df2f4a",
-                                "color": 2,
-                                "index": 2,
-                                "label": "Error"
-                              }
-                            ]
-                          },
-                          "selectType": "label2index"
-                        }
-                      }
-                    ],
-                    "create_labels_if_missing": false
-                  },
-                  "module": "monday:ChangeMultipleColumnValuesV2",
-                  "version": 2,
-                  "metadata": {
-                    "expect": [
-                      {
-                        "name": "boardId",
-                        "type": "select",
-                        "label": "Board ID",
-                        "required": true
-                      },
-                      {
-                        "name": "create_labels_if_missing",
-                        "type": "boolean",
-                        "label": "Create Labels if Missing",
-                        "required": true
-                      },
-                      {
-                        "name": "itemId",
-                        "type": "select",
-                        "label": "Item ID",
-                        "required": true
-                      },
-                      {
-                        "name": "columnValuesToChange",
-                        "spec": [
-                          {
-                            "name": "columnId",
-                            "type": "select",
-                            "label": "Column ID",
-                            "dynamic": true,
-                            "options": {
-                              "store": []
-                            },
-                            "required": true,
-                            "validate": false
-                          }
-                        ],
-                        "type": "array",
-                        "label": "Column Values to Change",
-                        "required": true
-                      }
-                    ],
-                    "restore": {
-                      "expect": {
-                        "itemId": {
-                          "mode": "edit"
-                        },
-                        "boardId": {
-                          "mode": "edit"
-                        },
-                        "columnValuesToChange": {
-                          "mode": "chose",
-                          "items": [
-                            {
-                              "columnId": {
-                                "mode": "chose",
-                                "label": "Status"
-                              },
-                              "columnValue": {
-                                "nested": {
-                                  "label": {
-                                    "mode": "chose",
-                                    "label": "Error"
-                                  },
-                                  "selectType": {
-                                    "mode": "chose",
-                                    "label": "Label"
-                                  }
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "create_labels_if_missing": {
-                          "mode": "chose"
-                        }
-                      },
-                      "parameters": {
-                        "__IMTCONN__": {
-                          "data": {
-                            "scoped": "true",
-                            "connection": "monday"
-                          },
-                          "label": "Kyles API"
-                        }
-                      }
-                    },
-                    "designer": {
-                      "x": 1341,
-                      "y": 152
-                    },
-                    "parameters": [
-                      {
-                        "name": "__IMTCONN__",
-                        "type": "account:monday",
-                        "label": "Connection",
-                        "required": true
-                      }
-                    ]
-                  },
-                  "parameters": {
-                    "__IMTCONN__": 153017
-                  }
-                }
-              ],
-              "version": 2,
-              "metadata": {
-                "expect": [
-                  {
-                    "name": "data",
-                    "spec": [
-                      {
-                        "name": "item_id",
-                        "type": "text",
-                        "required": true
-                      },
-                      {
-                        "name": "meeting_item_id",
-                        "type": "text"
-                      }
-                    ],
-                    "type": "collection",
-                    "label": "Scenario Inputs"
-                  }
-                ],
-                "restore": {
-                  "parameters": {
-                    "scenario": {
-                      "label": "ChatGPT Prompt"
-                    }
-                  }
-                },
-                "designer": {
-                  "x": 1200,
-                  "y": 150
-                },
-                "interface": [
-                  {
-                    "help": "Generated marketing content from meeting transcript including blog, LinkedIn post, and SEO metadata",
-                    "name": "marketing_content",
-                    "type": "text",
-                    "label": "",
-                    "default": "",
-                    "required": true,
-                    "multiline": true
-                  }
-                ],
-                "parameters": [
-                  {
-                    "name": "scenario",
-                    "type": "scenario",
-                    "label": "Scenario",
-                    "required": true
-                  },
-                  {
-                    "name": "shouldWaitForExecutionEnd",
-                    "type": "boolean",
-                    "label": "Wait for the scenario to finish",
-                    "required": true
+                    "id": 2,
+                    "hex": "#df2f4a",
+                    "color": 2,
+                    "index": 2,
+                    "label": "Error",
+                    "is_done": false,
+                    "is_deactivated": false
                   }
                 ]
               },
-              "parameters": {
-                "scenario": "SCN_4632957",
-                "shouldWaitForExecutionEnd": true
-              }
-            },
-            {
-              "id": 29,
-              "mapper": {
-                "itemId": "{{1.pulseId}}",
-                "boardId": "18405337734",
-                "columnValuesToChange": [
-                  {
-                    "columnId": "color_mm1j3rfh",
-                    "columnValue": {
-                      "label": "Done",
-                      "settings": {
-                        "labels": [
-                          {
-                            "id": 0,
-                            "hex": "#fdab3d",
-                            "color": 0,
-                            "index": 0,
-                            "label": "Processing",
-                            "is_done": false,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 1,
-                            "hex": "#00c875",
-                            "color": 1,
-                            "index": 1,
-                            "label": "Done",
-                            "is_done": false,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 2,
-                            "hex": "#df2f4a",
-                            "color": 2,
-                            "index": 2,
-                            "label": "Error",
-                            "is_done": false,
-                            "is_deactivated": false
-                          }
-                        ]
-                      },
-                      "selectType": "label2index"
-                    }
-                  },
-                  {
-                    "columnId": "color_mm1j6ejs",
-                    "columnValue": {
-                      "label": "Complete",
-                      "settings": {
-                        "labels": [
-                          {
-                            "id": 0,
-                            "hex": "#fdab3d",
-                            "color": 0,
-                            "index": 0,
-                            "label": "Yes",
-                            "is_done": false,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 1,
-                            "hex": "#00c875",
-                            "color": 1,
-                            "index": 1,
-                            "label": "Complete",
-                            "is_done": true,
-                            "is_deactivated": false
-                          },
-                          {
-                            "id": 2,
-                            "hex": "#df2f4a",
-                            "color": 2,
-                            "index": 2,
-                            "label": "No",
-                            "is_done": false,
-                            "is_deactivated": false
-                          }
-                        ]
-                      },
-                      "selectType": "label2index"
-                    }
-                  }
-                ],
-                "create_labels_if_missing": true
-              },
-              "module": "monday:ChangeMultipleColumnValuesV2",
-              "version": 2,
-              "metadata": {
-                "expect": [
-                  {
-                    "name": "boardId",
-                    "type": "select",
-                    "label": "Board ID",
-                    "required": true
-                  },
-                  {
-                    "name": "create_labels_if_missing",
-                    "type": "boolean",
-                    "label": "Create Labels if Missing",
-                    "required": true
-                  },
-                  {
-                    "name": "itemId",
-                    "type": "any",
-                    "label": "Item ID",
-                    "required": true
-                  },
-                  {
-                    "name": "columnValuesToChange",
-                    "spec": [
-                      {
-                        "name": "columnId",
-                        "type": "select",
-                        "label": "Column ID",
-                        "dynamic": true,
-                        "options": {
-                          "store": []
-                        },
-                        "required": true,
-                        "validate": false
-                      }
-                    ],
-                    "type": "array",
-                    "label": "Column Values to Change",
-                    "required": true
-                  }
-                ],
-                "restore": {
-                  "expect": {
-                    "boardId": {
-                      "mode": "edit"
-                    },
-                    "columnValuesToChange": {
-                      "mode": "chose",
-                      "items": [
-                        {
-                          "columnId": {
-                            "mode": "edit"
-                          },
-                          "columnValue": {
-                            "nested": {
-                              "label": {
-                                "mode": "chose",
-                                "label": "Processing"
-                              },
-                              "selectType": {
-                                "mode": "chose",
-                                "label": "Label"
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "columnId": {
-                            "mode": "chose",
-                            "label": "Status"
-                          },
-                          "columnValue": {
-                            "nested": {
-                              "label": {
-                                "mode": "chose",
-                                "label": "Done"
-                              },
-                              "selectType": {
-                                "mode": "chose",
-                                "label": "Label"
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    "create_labels_if_missing": {
-                      "mode": "chose"
-                    }
-                  },
-                  "parameters": {
-                    "__IMTCONN__": {
-                      "data": {
-                        "scoped": "true",
-                        "connection": "monday"
-                      },
-                      "label": "Kyles API"
-                    }
-                  }
-                },
-                "designer": {
-                  "x": 1500,
-                  "y": 150
-                },
-                "parameters": [
-                  {
-                    "name": "__IMTCONN__",
-                    "type": "account:monday",
-                    "label": "Connection",
-                    "required": true
-                  }
-                ]
-              },
-              "parameters": {
-                "__IMTCONN__": 153017
-              }
+              "selectType": "label2index"
             }
-          ]
-        }
-      ]
+          },
+          {
+            "columnId": "color_mm1j6ejs",
+            "columnValue": {
+              "label": "Complete",
+              "settings": {
+                "labels": [
+                  {
+                    "id": 0,
+                    "hex": "#fdab3d",
+                    "color": 0,
+                    "index": 0,
+                    "label": "Yes",
+                    "is_done": false,
+                    "is_deactivated": false
+                  },
+                  {
+                    "id": 1,
+                    "hex": "#00c875",
+                    "color": 1,
+                    "index": 1,
+                    "label": "Complete",
+                    "is_done": true,
+                    "is_deactivated": false
+                  },
+                  {
+                    "id": 2,
+                    "hex": "#df2f4a",
+                    "color": 2,
+                    "index": 2,
+                    "label": "No",
+                    "is_done": false,
+                    "is_deactivated": false
+                  }
+                ]
+              },
+              "selectType": "label2index"
+            }
+          }
+        ],
+        "create_labels_if_missing": true
+      },
+      "module": "monday:ChangeMultipleColumnValuesV2",
+      "version": 2,
+      "metadata": {
+        "expect": [
+          {
+            "name": "boardId",
+            "type": "select",
+            "label": "Board ID",
+            "required": true
+          },
+          {
+            "name": "create_labels_if_missing",
+            "type": "boolean",
+            "label": "Create Labels if Missing",
+            "required": true
+          },
+          {
+            "name": "itemId",
+            "type": "any",
+            "label": "Item ID",
+            "required": true
+          },
+          {
+            "name": "columnValuesToChange",
+            "spec": [
+              {
+                "name": "columnId",
+                "type": "select",
+                "label": "Column ID",
+                "dynamic": true,
+                "options": {
+                  "store": []
+                },
+                "required": true,
+                "validate": false
+              }
+            ],
+            "type": "array",
+            "label": "Column Values to Change",
+            "required": true
+          }
+        ],
+        "restore": {
+          "expect": {
+            "boardId": {
+              "mode": "edit"
+            },
+            "columnValuesToChange": {
+              "mode": "chose",
+              "items": [
+                {
+                  "columnId": {
+                    "mode": "edit"
+                  },
+                  "columnValue": {
+                    "nested": {
+                      "label": {
+                        "mode": "chose",
+                        "label": "Processing"
+                      },
+                      "selectType": {
+                        "mode": "chose",
+                        "label": "Label"
+                      }
+                    }
+                  }
+                },
+                {
+                  "columnId": {
+                    "mode": "chose",
+                    "label": "Status"
+                  },
+                  "columnValue": {
+                    "nested": {
+                      "label": {
+                        "mode": "chose",
+                        "label": "Done"
+                      },
+                      "selectType": {
+                        "mode": "chose",
+                        "label": "Label"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "create_labels_if_missing": {
+              "mode": "chose"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "monday"
+              },
+              "label": "Kyles API"
+            }
+          }
+        },
+        "designer": {
+          "x": 1100,
+          "y": 0
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:monday",
+            "label": "Connection",
+            "required": true
+          }
+        ]
+      },
+      "parameters": {
+        "__IMTCONN__": 153017
+      }
     }
   ],
   "name": "Meeting Board Sync",
