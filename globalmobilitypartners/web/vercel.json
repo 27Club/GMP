@@ -4,6 +4,12 @@
   "installCommand": "npm install",
   "outputDirectory": ".next",
   "regions": ["iad1"],
+  "crons": [
+    {
+      "path": "/api/publish?key=${PUBLISH_API_KEY}",
+      "schedule": "0 16 * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -88,7 +88,7 @@ export default function Footer() {
       <div className="border-t border-navy-800">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <p className="text-center text-xs text-navy-400">
-            &copy; 2025 Global Mobility Partners LLC. All rights reserved.
+            &copy; {new Date().getFullYear()} Global Mobility Partners LLC. All rights reserved.
           </p>
         </div>
       </div>
